@@ -1,0 +1,9 @@
+623e57463fe88197e1f2e:cart.html[m[36m:[m        .[1;31mcheckout[m-btn {
+[35md4f494639a5a8305b4a623e57463fe88197e1f2e:cart.html[m[36m:[m        .[1;31mcheckout[m-btn:hover {
+[35md4f494639a5a8305b4a623e57463fe88197e1f2e:cart.html[m[36m:[m        .[1;31mcheckout[m-btn:disabled {
+[35md4f494639a5a8305b4a623e57463fe88197e1f2e:cart.html[m[36m:[m                    <button class="[1;31mcheckout[m-btn" onclick="proceedTo[1;31mCheckout[m()">Proceed to [1;31mCheckout[m</button>
+[35md4f494639a5a8305b4a623e57463fe88197e1f2e:cart.html[m[36m:[m        // Proceed to [1;31mcheckout[m
+[35md4f494639a5a8305b4a623e57463fe88197e1f2e:cart.html[m[36m:[m        async function proceedTo[1;31mCheckout[m() {
+[35md4f494639a5a8305b4a623e57463fe88197e1f2e:cart.html[m[36m:[m                    alert('Your cart is empty. Please add items before [1;31mcheckout[m.');
+[35md4f494639a5a8305b4a623e57463fe88197e1f2e:cart.html[m[36m:[m                console.error('Error during [1;31mcheckout[m:', error);
+[35md4f494639a5a8305b4a623e57463fe88197e1f2e:cart.html[m[36m:[m                alert('Error during [1;31mcheckout[m: ' + error.message);

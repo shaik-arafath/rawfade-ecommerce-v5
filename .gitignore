@@ -1,42 +1,43 @@
-﻿node_modules/
-target/
+﻿# Node
+node_modules/
 dist/
 build/
+
+# Java / Spring
+target/
+spring_backend/target/
+
+# IDE
 .idea/
 .vscode/
-uploads/
+
+# Logs
 *.log
-spring_backend/target/
-spring_backend/src/main/resources/img/
-spring_backend/uploads/
-img/
-blobs/
-*.mp4
-*.png
-*.jpg
-*.jpeg
-*.webp
-*.ico
-*.gif
-*.svg
-*.pdf
-*.csv
-*.bat
-*.sh
-*.md
-!README.md
-*.json
+
+# OS
+.DS_Store
+
+# ENV (never commit secrets)
+.env
+
+# Uploads (DO NOT IGNORE in production)
+# uploads/
+
+# DO NOT IGNORE IMAGES
+# img/
+# *.png
+# *.jpg
+# *.jpeg
+# *.webp
+# *.svg
+# *.ico
+# *.gif
+
+# Git allowed files
 !package.json
 !package-lock.json
-*.yaml
-*.yml
-*.txt
-*.workspace
-*.code-workspace
-*.properties
-!spring_backend/src/main/resources/application-prod.properties
-# REMOVE these lines:
-# *.xml
-# *.sql
-# *.java
+!README.md
 
+# Allow Spring configs
+!spring_backend/src/main/resources/application.properties
+!spring_backend/src/main/resources/application-prod.properties

@@ -10,7 +10,7 @@ const fs = require('fs');
 
 // Database connection
 const dbConfig = {
-  host: 'localhost',
+  host: '127.0.0.1',
   port: 3306,
   user: 'rawfade_user',
   password: 'Arafath143@',

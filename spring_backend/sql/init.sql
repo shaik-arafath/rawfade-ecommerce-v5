@@ -1,5 +1,5 @@
--- MySQL DDL for basic tables (run in your DB before starting or let JPA create tables)
-USE rawfade;
+-- MySQL DDL for basic tables (run in your DB before starting)
+USE rawfade_db;
 
 CREATE TABLE IF NOT EXISTS users (
   id BIGINT AUTO_INCREMENT PRIMARY KEY,

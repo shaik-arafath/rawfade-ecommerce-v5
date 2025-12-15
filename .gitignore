@@ -34,6 +34,9 @@ blobs/
 *.workspace
 *.code-workspace
 *.properties
-*.xml
-*.sql
-*.java
+!spring_backend/src/main/resources/application-prod.properties
+# REMOVE these lines:
+# *.xml
+# *.sql
+# *.java
+

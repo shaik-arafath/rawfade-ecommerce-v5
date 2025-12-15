@@ -14,7 +14,7 @@ const dbConfig = {
   port: 3306,
   user: 'rawfade_user',
   password: 'Arafath143@',
-  database: 'rawfade'
+  database: 'rawfade_db'
 };
 
 let dbConnection;

@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: rawfade_db
+    environment:
+      MYSQL_DATABASE: rawfade_db
+      MYSQL_USER: rawfade_user
+      MYSQL_PASSWORD: Arafath143@
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: unless-stopped
+
+  app:
+    image: openjdk:17-jdk-slim
+    container_name: rawfade_app
+    working_dir: /app
+    volumes:
+      - ./spring_backend/target/umat-backend-0.0.1-SNAPSHOT.jar:/app/app.jar
+      - ./uploads:/var/www/rawfade/uploads
+    command: ["java", "-jar", "app.jar"]
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/rawfade_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: rawfade_user
+      SPRING_DATASOURCE_PASSWORD: Arafath143@
+
+  traefik:
+    image: traefik:v2.9
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.myresolver.acme.email=arafathshaik121@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - traefik-letsencrypt:/letsencrypt
+    networks:
+      - web
+    restart: unless-stopped
+
+volumes:
+  db_data:
+  traefik-letsencrypt:
+
+networks:
+  web:
+    external: true
